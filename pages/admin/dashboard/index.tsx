@@ -1,8 +1,9 @@
 import LayoutAdmin from "@/components/Layout/LayoutAdmin";
+import WithAuth from "@/components/Private/withAuth";
 import { Box } from "@mui/material";
 import Head from "next/head";
 
-export default function DashboardAll() {
+const DashboardAll = () => {
   return (
     <Box>
       <Head>
@@ -20,3 +21,5 @@ export default function DashboardAll() {
     </Box>
   );
 }
+
+export default WithAuth(DashboardAll);
