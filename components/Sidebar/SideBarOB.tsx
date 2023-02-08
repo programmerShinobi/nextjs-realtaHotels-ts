@@ -31,7 +31,7 @@ const SideBarOB = forwardRef(({ showNav }:any, ref:any) => {
                       <LocationCityIcon className="h-5 w-5" />
                     </div>
                     <div>
-                      <p>Hotel</p>
+                      <p>Hotels</p>
                     </div>
                     <ChevronRightIcon
                       className={`${open ? 'rotate-90 transform' : ''
@@ -51,7 +51,7 @@ const SideBarOB = forwardRef(({ showNav }:any, ref:any) => {
                             } h-5 w-5 text-orange-500`}
                         />
                         <div>
-                          <p>Hotel</p>
+                          <p>Task</p>
                         </div>
                       </div>
                     </Link>

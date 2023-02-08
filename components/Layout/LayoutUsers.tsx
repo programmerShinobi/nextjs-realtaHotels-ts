@@ -1,7 +1,15 @@
+import { useRouter } from 'next/router';
 import styles from '../../styles/LayoutAuth.module.css';
+import Custom401 from '@/pages/401';
+import WithAuth from '../Private/withAuth';
 
-export default function LayoutUsers({ children }:any) {
-
+const LayoutUsers = ({ children }:any) => {
+  const router = useRouter();
+  const roleId: any = localStorage.getItem("roleId");
+  if (roleId != 5) {
+    router.back();
+    return Custom401();
+  }
   return (
     <>
       <div className="flex h-screen bg-gray-700">
@@ -21,3 +29,5 @@ export default function LayoutUsers({ children }:any) {
     </>
   );
 }
+
+export default WithAuth(LayoutUsers);

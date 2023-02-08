@@ -4,8 +4,9 @@ import SideBarOB from "../Sidebar/SideBarOB";
 import { Transition } from "@headlessui/react";
 import { useRouter } from "next/router";
 import Custom401 from "@/pages/401";
+import WithAuth from "../Private/withAuth";
 
-export default function LayoutOB({ children }:any) {
+const LayoutOB = ({ children }:any) => {
   const [showNav, setShowNav] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -60,3 +61,5 @@ export default function LayoutOB({ children }:any) {
     </>
   );
 }
+
+export default WithAuth(LayoutOB);

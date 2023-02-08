@@ -2,8 +2,11 @@ import { useState, useEffect, Fragment } from "react";
 import TopBar from '../Header/TobBarAdmin';
 import SideBarManager from "../Sidebar/SideBarManager";
 import { Transition } from "@headlessui/react";
+import { useRouter } from "next/router";
+import Custom401 from "@/pages/401";
+import WithAuth from "../Private/withAuth";
 
-export default function LayoutManager({ children }:any) {
+const LayoutManager = ({ children }:any) => {
   const [showNav, setShowNav] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -26,6 +29,13 @@ export default function LayoutManager({ children }:any) {
       removeEventListener("resize", handleResize);
     };
   }, []);
+
+  const router = useRouter();
+  const roleId: any = localStorage.getItem("roleId");
+  if (roleId != 2) {
+    router.back();
+    return Custom401();
+  }
 
   return (
     <>
@@ -51,3 +61,5 @@ export default function LayoutManager({ children }:any) {
     </>
   );
 }
+
+export default WithAuth(LayoutManager);
