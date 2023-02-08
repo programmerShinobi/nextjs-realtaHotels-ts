@@ -4,10 +4,13 @@ import { NextPage } from "next";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 import {useEffect} from 'react'
+import { useDispatch } from "react-redux";
 
 const WithAuth = <P extends object>(WrappedComponent: NextPage<P>) => {
   return (props: P) => {
     const router = useRouter();
+    const dispatch = useDispatch();
+    
     const [isToken, setIsToken] = useState(null);
     useEffect(() => {
       const token:any = localStorage.getItem("token");
@@ -15,6 +18,7 @@ const WithAuth = <P extends object>(WrappedComponent: NextPage<P>) => {
         setTimeout(() => {
           setIsToken(null)
           router.push("/auth/signin");
+          router.isFallback;
         },3000);
       } else {
         setIsToken(token);
@@ -24,12 +28,9 @@ const WithAuth = <P extends object>(WrappedComponent: NextPage<P>) => {
       return <WrappedComponent {...props} />;
     } else {
       return (
-        <Box className="h-screen w-full flex flex-col justify-center items-center bg-gray-700">
-          <FormLabel className="text-9xl font-extrabold text-orange-500 tracking-widest ">404</FormLabel>
-          <FormLabel className="whitespace-normal" />
-          <FormLabel className="bg-[#FF6A3D] text-sm rounded rotate-12 text-white mt-5">
-            -- Private Page --
-          </FormLabel>
+        <Box className="h-screen w-full flex flex-col justify-center items-center bg-black">
+          <FormLabel className="text-2xl font-bold text-white">401 | {"Unauthorized"}</FormLabel>
+          <FormLabel className="font-normal text-white mt-2">Private page</FormLabel>
         </Box>
       );
     }
