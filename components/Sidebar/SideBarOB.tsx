@@ -1,22 +1,13 @@
 import { forwardRef } from "react";
 import Link from "next/link";
-import { HomeIcon, CreditCardIcon, UserIcon, UsersIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
-import AccountTreeIcon from '@mui/icons-material/AccountTree';
-import DonutSmallIcon from '@mui/icons-material/DonutSmall';
-import CollectionsBookmarkIcon from '@mui/icons-material/CollectionsBookmark';
+import { ChevronRightIcon } from "@heroicons/react/24/solid";
 import LocationCityIcon from '@mui/icons-material/LocationCity';
-import Groups3Icon from '@mui/icons-material/Groups3';
-import PaymentIcon from '@mui/icons-material/Payment';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import LocalDiningIcon from '@mui/icons-material/LocalDining';
 import { useRouter } from "next/router";
-import { Disclosure } from '@headlessui/react'
-import { ChevronUpIcon } from '@heroicons/react/20/solid'
-import { GridMenuIcon } from "@mui/x-data-grid";
+import { Disclosure } from '@headlessui/react';
+import { ChevronUpIcon } from '@heroicons/react/20/solid';
 
 const SideBarOB = forwardRef(({ showNav }:any, ref:any) => {
   const router = useRouter();
-
   return (
     <div ref={ref} className="fixed w-56 bg-white shadow-sm h-full overflow-y-auto">
       <div className="flex justify-center mt-6 mb-5">

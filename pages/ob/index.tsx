@@ -1,16 +1,7 @@
 import LayoutOB from "@/components/Layout/LayoutOB";
 import WithAuth from "@/components/Private/withAuth";
-import Custom401 from "../401";
-import { useRouter } from "next/router";
 
 const OB = () => {
-  const router = useRouter();
-  const roleId: any = localStorage.getItem("roleId");  
-  if (roleId == 3) {
-  } else {
-    router.back();
-    return Custom401();
-  }
   return (
     <>
       <LayoutOB>

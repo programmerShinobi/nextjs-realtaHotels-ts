@@ -2,6 +2,8 @@ import { useState, useEffect, Fragment } from "react";
 import TopBar from '../Header/TobBarAdmin';
 import SideBarOB from "../Sidebar/SideBarOB";
 import { Transition } from "@headlessui/react";
+import { useRouter } from "next/router";
+import Custom401 from "@/pages/401";
 
 export default function LayoutOB({ children }:any) {
   const [showNav, setShowNav] = useState(true);
@@ -26,6 +28,13 @@ export default function LayoutOB({ children }:any) {
       removeEventListener("resize", handleResize);
     };
   }, []);
+
+  const router = useRouter();
+  const roleId: any = localStorage.getItem("roleId");
+  if (roleId != 3) {
+    router.back();
+    return Custom401();
+  }
 
   return (
     <>

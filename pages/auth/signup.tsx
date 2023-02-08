@@ -44,8 +44,6 @@ export default function SignUp() {
 
     // Memeriksa apakah user sudah login
     if (isRegister.message == 'Register Successfully') {
-      // mengirim email konfirmasi register
-      // sendEmail(values.userEmail, 'Konfirmasi Register', 'Anda sudah berhasil melakukan register. Terima kasih telah bergabung bersama kami.');
       router.push('/auth/signin');
     }
   };

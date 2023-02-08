@@ -1,7 +1,9 @@
 import { useState, useEffect, Fragment } from "react";
-import TopBar from '../Header/TobBarAdmin';
+import TopBarAdmin from '../Header/TobBarAdmin';
 import SideBar from "../Sidebar/SideBarAdmin";
 import { Transition } from "@headlessui/react";
+import { useRouter } from "next/router";
+import Custom401 from "@/pages/401";
 
 export default function LayoutAdmin({ children }:any) {
   const [showNav, setShowNav] = useState(true);
@@ -27,9 +29,16 @@ export default function LayoutAdmin({ children }:any) {
     };
   }, []);
 
+  const router = useRouter();
+  const roleId: any = localStorage.getItem("roleId");
+  if (roleId != 4) {
+    router.back();
+    return Custom401();
+  }
+
   return (
     <>
-      <TopBar showNav={showNav} setShowNav={setShowNav} />
+      <TopBarAdmin showNav={showNav} setShowNav={setShowNav} />
       <Transition
         as={Fragment}
         show={showNav}

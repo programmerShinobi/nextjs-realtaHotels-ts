@@ -1,6 +1,6 @@
 import { forwardRef } from "react";
 import Link from "next/link";
-import { HomeIcon, CreditCardIcon, UserIcon, UsersIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
+import { UsersIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
 import AccountTreeIcon from '@mui/icons-material/AccountTree';
 import DonutSmallIcon from '@mui/icons-material/DonutSmall';
 import CollectionsBookmarkIcon from '@mui/icons-material/CollectionsBookmark';
@@ -10,13 +10,11 @@ import PaymentIcon from '@mui/icons-material/Payment';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import LocalDiningIcon from '@mui/icons-material/LocalDining';
 import { useRouter } from "next/router";
-import { Disclosure } from '@headlessui/react'
-import { ChevronUpIcon } from '@heroicons/react/20/solid'
-import { GridMenuIcon } from "@mui/x-data-grid";
+import { Disclosure } from '@headlessui/react';
+import { ChevronUpIcon } from '@heroicons/react/20/solid';
 
-const SideBar = forwardRef(({ showNav }:any, ref:any) => {
+const SideBarAdmin = forwardRef(({ showNav }:any, ref:any) => {
   const router = useRouter();
-
   return (
     <div ref={ref} className="fixed w-56 bg-white shadow-sm h-full overflow-y-auto">
       <div className="flex justify-center mt-6 mb-5">
@@ -1039,8 +1037,7 @@ const SideBar = forwardRef(({ showNav }:any, ref:any) => {
   );
 });
 
-SideBar.displayName = "SideBar";
-
-export default SideBar;
+SideBarAdmin.displayName = "SideBarAdmin";
+export default SideBarAdmin;
 
 
