@@ -5,9 +5,8 @@ import { useRouter } from "next/router";
 
 const OB = () => {
   const router = useRouter();
-  const roleId: any = localStorage.getItem("roleId");
-  console.info(roleId);   
-  if (roleId == 1) {
+  const roleId: any = localStorage.getItem("roleId");  
+  if (roleId == 3) {
   } else {
     router.back();
     return Custom401();

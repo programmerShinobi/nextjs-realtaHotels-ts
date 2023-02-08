@@ -15,7 +15,7 @@ const PrivateRoute: React.FC<Props> = ({ children }) => {
       setTimeout(() => {
         setToken(null)
         router.push('/auth/login');
-      }, 3000);
+      }, 2000);
     } else {
       setToken(storedValue);
     }

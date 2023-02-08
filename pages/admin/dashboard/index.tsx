@@ -3,13 +3,13 @@ import WithAuth from "@/components/Private/withAuth";
 import Custom401 from "@/pages/401";
 import { Box } from "@mui/material";
 import Head from "next/head";
+import { useRouter } from "next/router";
 
 const DashboardAll = () => {
   const roleId: any = localStorage.getItem("roleId");
-  console.info(roleId);   
-  if (roleId == 4) {
-    
-  } else {
+  if (roleId != 4) {
+    const router = useRouter();
+    router.back();
     return Custom401();
   }
   return (
