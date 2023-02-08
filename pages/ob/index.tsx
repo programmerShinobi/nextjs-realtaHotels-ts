@@ -1,6 +1,17 @@
 import LayoutOB from "@/components/Layout/LayoutOB";
+import WithAuth from "@/components/Private/withAuth";
+import Custom401 from "../401";
+import { useRouter } from "next/router";
 
-export default function OB() {
+const OB = () => {
+  const router = useRouter();
+  const roleId: any = localStorage.getItem("roleId");
+  console.info(roleId);   
+  if (roleId == 1) {
+  } else {
+    router.back();
+    return Custom401();
+  }
   return (
     <>
       <LayoutOB>
@@ -9,3 +20,5 @@ export default function OB() {
     </>
   );
 }
+
+export default WithAuth(OB);

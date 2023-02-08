@@ -43,7 +43,9 @@ export default function SignIn() {
     // Memeriksa apakah user sudah login
     if (isLogin.message == 'Login successfully') {
       localStorage.setItem('token', isLogin.token);
+      localStorage.setItem('roleId', isLogin.userdata[0].usro_role_id);
       console.info(isLogin);
+      
       if (isLogin.userdata[0].usro_role_id == 1) {        // Guest
         router.push('/');
       } else if (isLogin.userdata[0].usro_role_id == 2) { // Manager

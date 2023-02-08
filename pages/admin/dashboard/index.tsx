@@ -1,9 +1,17 @@
 import LayoutAdmin from "@/components/Layout/LayoutAdmin";
 import WithAuth from "@/components/Private/withAuth";
+import Custom401 from "@/pages/401";
 import { Box } from "@mui/material";
 import Head from "next/head";
 
 const DashboardAll = () => {
+  const roleId: any = localStorage.getItem("roleId");
+  console.info(roleId);   
+  if (roleId == 4) {
+    
+  } else {
+    return Custom401();
+  }
   return (
     <Box>
       <Head>
